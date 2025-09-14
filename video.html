@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Child Development Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Arial", sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80');">
+    Child Development is a journey of growth.
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80');">
+    Sigmund Freud: Childhood experiences shape personality.
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1596464716121-3b0d39f54c3c?auto=format&fit=crop&w=1200&q=80');">
+    Jean Piaget: Children learn through stages of thinking.
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');">
+    Lev Vygotsky: Social interaction is the key to learning.
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506801310323-534be5e7c45b?auto=format&fit=crop&w=1200&q=80');">
+    Erik Erikson: Life is a series of psychosocial stages.
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80');">
+    Understanding child development helps us support every child’s growth.
+  </div>
+  
+  <footer>Author RITA PATEL</footer>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide() {
+      slides.forEach(slide => slide.classList.remove('show'));
+      slides[index].classList.add('show');
+      index = (index + 1) % slides.length;
+    }
+
+    // Show first slide immediately
+    showSlide();
+    // Change slide every 5 seconds
+    setInterval(showSlide, 5000);
+  </script>
+</body>
+</html>
